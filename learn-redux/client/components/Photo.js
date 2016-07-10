@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import CssTransactionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Photo = React.createClass({
     render(){
@@ -10,23 +10,25 @@ const Photo = React.createClass({
         return (
             <figure className="grid-figure">
                 <div className="grid-photo-wrap">
-                    <Link to={'/view/${post.code}'}>
+                    <Link to={`/view/${post.code}`}>
                         <img src={post.display_src} alt={post.caption} className="grid-photo"/>
                     </Link>
 
-                    <CssTransactionGroup transitionName="like"
+                    <CSSTransitionGroup transitionName="like"
                         transitionEnterTimeout={500}
                         transitionLeaveTimeout={500}>
                         <span key={post.likes} className="likes-heart">
                             {post.likes}
                         </span>
-                    </CssTransactionGroup>
+                    </CSSTransitionGroup>
                 </div>
 
                 <figcaption>
                     <p>{post.caption}</p>
                     <div className="control-buttons">
-                        <button className="likes">&hearts; {post.likes}</button>
+                        <button 
+                            onClick={this.props.incrementLike.bind(null, i)}
+                            className="likes">&hearts; {post.likes}</button>
 
                         <Link className="button" to='/view/${post.code}'>
                             <span className="comment-count">

@@ -1,13 +1,16 @@
+import * as types from './actionTypes';
+
 // increment or decrement likes
-function incrementLike(index){
+export function incrementLike(index){
     return {
-        type: 'INCREMENT_LILKES',
+        type: types.INCREMENT_LIKES,
         index
     }
 }
 
 // add comment
-function addComment(postId, author, comment){
+export function addComment(postId, author, comment){
+    console.log('dispatching add comment');
     return {
         type: 'ADD_COMMENT',
         postId,
@@ -17,7 +20,7 @@ function addComment(postId, author, comment){
 }
 
 // remove comment
-function removeComment(postId, commentIndex){
+export function removeComment(postId, commentIndex){
     return {
         type: 'REMOVE_COMMENT',
         postId,

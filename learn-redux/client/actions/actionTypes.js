@@ -1,0 +1,1 @@
+export const INCREMENT_LIKES = 'INCREMENT_LIKES';
